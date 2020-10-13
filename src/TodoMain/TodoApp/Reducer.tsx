@@ -3,6 +3,7 @@ import  { State, Type, ProductActions } from './types';
 const Reducer = ( prevState: State , action: ProductActions ) => {
     switch(action.type){
         case Type.Add:
+            console.log(action);
             return {
                 ...prevState,
                 items : prevState.items.concat({
