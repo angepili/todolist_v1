@@ -26,7 +26,7 @@ const Reducer = ( prevState: State , action: ProductActions ) => {
         case Type.Delete:
             return {
                 ...prevState,
-                items : prevState.items.filter( item => item.id != action.payload.id )
+                items : prevState.items.filter( item => item.id !== action.payload.id )
             }
         default:
             return prevState;            
