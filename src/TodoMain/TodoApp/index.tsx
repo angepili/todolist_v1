@@ -5,6 +5,10 @@ import { State } from './types';
 const initialState = {
     items : [],
     isLogged: false,
+    mode : {
+        type : 'add',
+        id : null
+    }
 }
 
 export const Context = createContext<{

@@ -9,13 +9,13 @@ export const Styles:StylesDictionary  = {
         backgroundColor: '#fff', 
         position: 'fixed', 
         zIndex: 1, 
-        width: '100%'
+        width: '100%',
+        padding: '0 15px'
     },
-    Content : {
-        padding: '0 50px', 
-        marginTop: 64 
+    Content : { 
+        marginTop: 64,
     },
     TodoItem : {
-        margin: '0 0 30px'
+        margin: '15px'
     }
 }

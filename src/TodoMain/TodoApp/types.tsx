@@ -11,7 +11,8 @@ type ActionMap<M extends { [ index: string ]:any}> = {
 export enum Type {
     Add = 'ADD_ITEM',
     Edit = 'EDIT_ITEM',
-    Delete = 'REMOVE_ITEM'
+    Delete = 'REMOVE_ITEM',
+    EditMode = 'EDIT_MODE',
 }
 
 export type Items = {
@@ -36,12 +37,19 @@ type ProductPayload = {
     };
     [Type.Delete] : {
         id: number
+    };
+    [Type.EditMode] : {
+        id: number
     }
 }
 
 export type State = {
     items: Array<Items>,
-    isLogged : boolean
+    isLogged : boolean,
+    mode : {
+        type : string
+        id : number | null
+    }
 }
 
 export type ProductActions = ActionMap<ProductPayload>[keyof ActionMap<ProductPayload>];

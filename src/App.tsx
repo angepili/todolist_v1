@@ -24,7 +24,7 @@ function App() {
             <TodoForm />
             <TodoList />
         </Content>
-        <Footer></Footer>
+        {/* <Footer></Footer> */}
       </Layout>
     </TodoApp>
   </>;
