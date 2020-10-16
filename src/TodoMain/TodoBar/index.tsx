@@ -9,7 +9,7 @@ const TodoBar = () => {
     const total = state.items.length;
 
     return <Row>
-                <Col span={4}>
+                <Col>
                     <h1 style={{display: 'inline-block',fontWeight: 'bold',marginRight:6,fontSize: 24}}>TodoList</h1>
                     <Badge count={total} style={{marginTop: -4}} />
                 </Col>

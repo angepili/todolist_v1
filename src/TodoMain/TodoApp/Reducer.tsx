@@ -1,7 +1,6 @@
 import  { State, Type, ProductActions } from './types';
 
 const Reducer = ( prevState: State , action: ProductActions ) => {
-    console.log(action);
     switch(action.type){
         case Type.Add:
             return {
@@ -14,11 +13,11 @@ const Reducer = ( prevState: State , action: ProductActions ) => {
         case Type.Edit:
             return {
                 ...prevState,
-                items: prevState.items.concat({
-                    id: action.payload.id,
-                    title: action.payload.title,
-                    description: action.payload.description,
-                    status: action.payload.status
+                items: prevState.items.map( item => {
+                    if(item.id === action.payload.id){
+                        item.title = action.payload.title
+                    }
+                    return item;
                 })
             }
         case Type.Delete:
@@ -31,7 +30,15 @@ const Reducer = ( prevState: State , action: ProductActions ) => {
                 ...prevState,
                 mode : {
                     type : 'edit',
-                    id : action.payload.id,
+                    id : action.payload.id
+                }
+            }
+        case Type.AddMode:
+            return {
+                ...prevState,
+                mode : {
+                    type : 'add',
+                    id : null
                 }
             }
         default:

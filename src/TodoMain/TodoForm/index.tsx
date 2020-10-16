@@ -10,24 +10,31 @@ import { FileAddOutlined } from '@ant-design/icons';
 const TodoForm = () => {
 
     const { state, dispatch } = useContext( Context );
-
-    const initInput = state.mode.type == 'add' ? '' : state.items.find( item => item.id == state.mode.id )?.title
-
-    const [ input, setInput ] = useState(initInput)
-
-
+    const [ input, setInput ] = useState('')
+    let inputValue = state.mode.type == 'add' ? '' : state.items.find( item => item.id == state.mode.id )?.title;
+    const buttonLabel = state.mode.type == 'add' ? 'Aggiungi' : 'Modifica'
     const { reset, register, handleSubmit, watch, errors } = useForm();
 
     const onSubmit = (data:any) : any => {
         const unixTime = Math.floor(Date.now() / 1000);
 
+        const type  = state.mode.type == 'add' ? Type.Add   : Type.Edit
+        const id    = state.mode.type == 'add' ? unixTime   : state.mode.id
+
         dispatch({
-            type : Type.Add,
+            type,
             payload : {
-                id: unixTime,
-                title: data.item
+                id,
+                title : data.item
             }
         })
+
+        if(state.mode.type == 'edit'){
+            dispatch({
+                type : Type.AddMode,
+                payload : {}
+            })
+        }
 
         reset({
             item: ''
@@ -35,8 +42,9 @@ const TodoForm = () => {
 
     }
 
+
     const onClose = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-        console.log(e, 'I was closed.');
+        return;
     };
 
     return <div style={{
@@ -47,18 +55,18 @@ const TodoForm = () => {
                     onSubmit={handleSubmit(onSubmit)}
                     >
                     <Row gutter={0}>
-                        <Col span={20}>
+                        <Col span={20} xs={16}>
                             <RHFInput
                             as={<Input size="large" placeholder="Inserisci una nota" prefix={<FileAddOutlined />} allowClear={true} autoComplete={"off"} />}
                             rules={{ required: true }}
                             name="item"
                             register={register}
                             setValue={setInput}
-                            defaultValue={input}
+                            value={inputValue}
                         />
                         </Col>
-                        <Col span={4}>
-                            <Button htmlType="submit" type="primary" size={"large"} style={{ width: "100%" }}>Aggiungi</Button>
+                        <Col span={4} xs={8}>
+                            <Button htmlType="submit" type="primary" size={"large"} style={{ width: "100%" }}>{buttonLabel}</Button>
                         </Col>
                     </Row>
                     {errors.item && 

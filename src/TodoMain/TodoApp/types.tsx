@@ -12,6 +12,7 @@ export enum Type {
     Add = 'ADD_ITEM',
     Edit = 'EDIT_ITEM',
     Delete = 'REMOVE_ITEM',
+    AddMode = 'ADD_MODE',
     EditMode = 'EDIT_MODE',
 }
 
@@ -26,21 +27,18 @@ type ProductPayload = {
     [Type.Add] : {
         id: number;
         title: string;
-        // description: string;
-        // status: string;
     };
     [Type.Edit] : {
         id: number;
         title: string;
-        description: string;
-        status: string;
     };
     [Type.Delete] : {
         id: number
     };
     [Type.EditMode] : {
         id: number
-    }
+    };
+    [Type.AddMode] : {}
 }
 
 export type State = {

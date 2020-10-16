@@ -32,17 +32,10 @@ const TodoItem = ( props : any ) => {
 
     return <Card type="inner" style={Styles.TodoItem}>
                 <Row>
-                    <Col span={20}>
-                        <p
-                        style={{
-                            fontSize: 24,
-                            lineHeight: 1.5,
-                            margin: 0
-                        }}>
-                            {title}
-                        </p>
+                    <Col span={20} xs={16}>
+                        <p style={Styles.TodoItemTitle}>{title}</p>
                     </Col>
-                    <Col span={4}>
+                    <Col span={4} xs={8}>
                         <div style={{float: 'right'}}>
                             <Button 
                                 type="link" 
