@@ -9,11 +9,12 @@ type ActionMap<M extends { [ index: string ]:any}> = {
 }
 
 export enum Type {
+    Init = 'SET_ITEMS',
     Add = 'ADD_ITEM',
     Edit = 'EDIT_ITEM',
     Delete = 'REMOVE_ITEM',
     AddMode = 'ADD_MODE',
-    EditMode = 'EDIT_MODE',
+    EditMode = 'EDIT_MODE'
 }
 
 export type Items = {
@@ -24,6 +25,7 @@ export type Items = {
 }
 
 type ProductPayload = {
+    [Type.Init] : Array<Items>;
     [Type.Add] : {
         id: number;
         title: string;
