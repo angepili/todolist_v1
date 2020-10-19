@@ -5,7 +5,9 @@ import { Row, Col, Badge } from 'antd';
 
 const TodoBar = () => {
 
-    const { state, dispatch } = useContext(Context);
+    const { state, 
+        // dispatch 
+    } = useContext(Context);
     const total = state.items.length;
 
     return <Row>

@@ -10,16 +10,23 @@ import { FileAddOutlined } from '@ant-design/icons';
 const TodoForm = () => {
 
     const { state, dispatch } = useContext( Context );
-    const [ input, setInput ] = useState('')
-    let inputValue = state.mode.type == 'add' ? '' : state.items.find( item => item.id == state.mode.id )?.title;
-    const buttonLabel = state.mode.type == 'add' ? 'Aggiungi' : 'Modifica'
-    const { reset, register, handleSubmit, watch, errors } = useForm();
+    const [ 
+        input, 
+        setInput ] = useState('')
+    let inputValue = state.mode.type === 'add' ? '' : state.items.find( item => item.id === state.mode.id )?.title;
+    const buttonLabel = state.mode.type === 'add' ? 'Aggiungi' : 'Modifica'
+    const { 
+        reset, 
+        register, 
+        handleSubmit, 
+        // watch, 
+        errors } = useForm();
 
     const onSubmit = (data:any) : any => {
         const unixTime = Math.floor(Date.now() / 1000);
 
-        const type  = state.mode.type == 'add' ? Type.Add   : Type.Edit
-        const id    = state.mode.type == 'add' ? unixTime   : state.mode.id
+        const type  = state.mode.type === 'add' ? Type.Add   : Type.Edit
+        const id    = state.mode.type === 'add' ? unixTime   : state.mode.id
 
         dispatch({
             type,
@@ -29,7 +36,7 @@ const TodoForm = () => {
             }
         })
 
-        if(state.mode.type == 'edit'){
+        if(state.mode.type === 'edit'){
             dispatch({
                 type : Type.AddMode,
                 payload : {}

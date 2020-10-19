@@ -1,14 +1,20 @@
-import React, { useEffect, useContext } from 'react';
+import React, {useContext } from 'react';
 import { Type } from '../TodoApp/types';
 import { Context } from '../TodoApp';
-import { Card, Row, Col, Button, Radio } from 'antd';
+import { Card, Row, Col, Button } from 'antd';
 import { EditOutlined,DeleteOutlined } from '@ant-design/icons';
 import { Styles }  from './../../style';
 
 const TodoItem = ( props : any ) => {
 
-    const { state, dispatch } = useContext(Context);
-    const { id, title, description } = props;
+    const { 
+        // state, 
+        dispatch } = useContext(Context);
+    const { 
+        id, 
+        title, 
+        // description 
+    } = props;
 
     const deleteItem = (id:number) : void => {
         dispatch({

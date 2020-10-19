@@ -10,9 +10,31 @@ import TodoList from './TodoMain/TodoList';
 
 import { Layout } from 'antd';
 
+// import db from './utils/firebase';
+
+// db.collection("users").add({
+//   first: "Ada",
+//   last: "Lovelace",
+//   born: 1815
+// })
+// .then(function(docRef:any):void {
+//   console.log("Document written with ID: ", docRef.id);
+// })
+// .catch(function(error:string) {
+//   console.error("Error adding document: ", error);
+// });
+
+// db.collection("users").get().then((querySnapshot) => {
+//   querySnapshot.forEach((doc) => {
+//       console.log(doc.id,doc.data());
+//   });
+// });
+
 function App() {
 
-  const { Header, Footer, Content } = Layout;
+  const { Header, 
+    // Footer, 
+    Content } = Layout;
 
   return <>
     <TodoApp>
