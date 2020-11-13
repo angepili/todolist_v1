@@ -1,6 +1,9 @@
 import  { State, Type, ProductActions } from './types';
 
 const Reducer = ( prevState: State , action: ProductActions ) => {
+
+    console.log('XXXX',action);
+
     switch(action.type){
         case Type.Init:
             return {

@@ -2,7 +2,7 @@ import React, { useReducer, createContext } from 'react'
 import Reducer from './Reducer';
 import { State } from './types';
 
-import getItems from './getItems';
+import useItems from '../../hooks/useItems';
 
 const initialState = {
     items : [],
@@ -22,7 +22,7 @@ const TodoApp: React.FC = ( { children } ) => {
 
     const [state, dispatch] = useReducer(Reducer, initialState);
 
-    getItems(dispatch);
+    useItems();
 
     return <Context.Provider value={{ state, dispatch }}>
         { children }

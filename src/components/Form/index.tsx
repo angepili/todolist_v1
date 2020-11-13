@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { Context } from '../TodoApp';
-import { Type } from '../TodoApp/types';
+import { Context } from '../Main';
+import { Type } from '../Main/types';
 
 import { Alert, Row, Col, Input, Button } from 'antd';
 import { RHFInput } from 'react-hook-form-input';
@@ -44,7 +44,7 @@ const TodoForm = () => {
         }
 
         reset({
-            item: ''
+            item: {}
         });
 
     }

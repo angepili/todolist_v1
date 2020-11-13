@@ -1,9 +1,9 @@
 import React, {useContext } from 'react';
-import { Type } from '../TodoApp/types';
-import { Context } from '../TodoApp';
+import { Type } from '../Main/types';
+import { Context } from '../Main';
 import { Card, Row, Col, Button } from 'antd';
 import { EditOutlined,DeleteOutlined } from '@ant-design/icons';
-import { Styles }  from './../../style';
+import { Styles }  from '../../style';
 
 const TodoItem = ( props : any ) => {
 

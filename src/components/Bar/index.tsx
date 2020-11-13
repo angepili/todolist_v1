@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Context } from '../TodoApp';
+import { Context } from '../Main';
 
 import { Row, Col, Badge } from 'antd';
 

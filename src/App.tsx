@@ -3,12 +3,14 @@ import './App.css';
 import { Styles }  from './style';
 import 'antd/dist/antd.css';
 
-import TodoApp from './TodoMain/TodoApp';
-import TodoBar from './TodoMain/TodoBar';
-import TodoForm from './TodoMain/TodoForm';
-import TodoList from './TodoMain/TodoList';
+import TodoApp from './components/Main';
+import TodoBar from './components/Bar';
+import TodoForm from './components/Form';
+import TodoList from './components/List';
 
 import { Layout } from 'antd';
+
+import useItems from './hooks/useItems';
 
 // import db from './utils/firebase';
 
